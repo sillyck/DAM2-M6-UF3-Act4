@@ -29,8 +29,7 @@
 		let $nom_peli_max_despres_2000 := doc("Peliculas2017.xml")//peliculas/pelicula[fecha=$max_despres_2000][1]/titulo
 		
 		let $actors_mitja_abans := format-number(avg(count(doc("Peliculas2017.xml")//peliculas/pelicula[titulo=$nom_peli_min_abans_2000]/actores/actor) + count(doc("Peliculas2017.xml")//peliculas/pelicula[titulo=$nom_peli_max_abans_2000]/actores/actor)), '9.9')
-		
-		let $actors_mitja_despres := avg(count(doc("Peliculas2017.xml")//peliculas/pelicula[titulo=$nom_peli_max_abans_2000]/actores/actor))
+		let $actors_mitja_despres := format-number(avg(count(doc("Peliculas2017.xml")//peliculas/pelicula[titulo=$nom_peli_min_despres_2000]/actores/actor) + count(doc("Peliculas2017.xml")//peliculas/pelicula[titulo=$nom_peli_max_despres_2000]/actores/actor)), '9.9')
 		
         where($n_abans>2) and ($n_despr>2)
         order by $gen
